@@ -5,11 +5,15 @@ A Braintree payment backend for django-shop
 
 Installation
 ------------
+Simply run
+```
+$ pip install django-shop-braintree
+```
+
+If you would prefer to install from source, just do
 ```
 $ python setup.py install
 ```
-
-Unfortunately, you cannot `pip install django-shop-braintree` at this time, but hopefully in the near future!
 
 Configuration
 -------------
