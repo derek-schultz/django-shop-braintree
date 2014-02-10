@@ -8,5 +8,5 @@ setup(name="django-shop-braintree",
       license="MIT",
       url="http://github.com/derek-schultz/django-shop-braintree",
       packages=find_packages(),
-      install_requires=["braintree>=2.27.0"],
+      install_requires=["django", "django-shop", "braintree", "south"],
       )

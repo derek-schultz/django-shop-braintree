@@ -1,0 +1,13 @@
+<form id="braintree-payment-form" method="POST">
+    {% csrf_token %}
+    <ul>
+        {{ form.as_ul }}
+    </ul>
+    <input type="submit" value="Submit">
+</form>
+
+<script src="https://js.braintreegateway.com/v1/braintree.js"></script>
+<script>
+    var braintree = Braintree.create("{{ cse_key }}");
+    braintree.onSubmitEncryptForm('braintree-payment-form');
+</script>
