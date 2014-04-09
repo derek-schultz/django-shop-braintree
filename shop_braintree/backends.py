@@ -11,6 +11,7 @@ from django.utils.translation import ugettext_lazy as _
 import braintree
 
 from shop.util.decorators import on_method, order_required
+from shop import order_signals
 
 from shop_braintree.models import BraintreeCustomer
 from shop_braintree.forms import CardForm
@@ -61,6 +62,7 @@ class BraintreeBackend(object):
 
                 if result.is_success:
                     self.shop.confirm_payment(order, amount_in_cents, result.transaction.id, self.backend_name)
+                    order_signals.confirmed.send(sender=self, order=order, request=request)
                     return self.braintree_success_view(request)
                 else:
                     # There is a new add_error method in 1.6, but we will use this for now
