@@ -18,7 +18,7 @@ from shop_braintree.forms import CardForm
 
 class BraintreeBackend(object):
     url_namespace = 'braintree'
-    backend_name = _('Braintree')
+    backend_name = _('Credit Card')
     template = 'shop_braintree/card.html'
 
     def __init__(self, shop):
