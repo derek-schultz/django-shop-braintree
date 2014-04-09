@@ -78,6 +78,5 @@ class BraintreeBackend(object):
         }
         return render(request, "shop_braintree/payment.html", context)
 
-    @on_method(order_required)
     def braintree_success_view(self, request):
         return HttpResponseRedirect(self.shop.get_finished_url())
